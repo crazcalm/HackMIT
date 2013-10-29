@@ -1,0 +1,3 @@
+This project started with an idea my girlfriend had when I showed her that I can scrape movie and theater info from imdb.com.
+
+Her idea was to create a website that shows you the theaters nearest to your location. After working on the project for some time now, I have now come to realized that scraping information from one site and then displaying that information on your site is a very slow process. So slow That I know that no one in there right mind will use this website. Knowing this, I still want to build this site for her, for me, for us. I want to build this site so that whereever we are, we can still find a movie to watch.
