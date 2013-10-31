@@ -1,6 +1,7 @@
-import re 
+import re, scraper1 
 from bs4 import BeautifulSoup
 from zip_code import create_soup
+
 
 def main(url = "ci0002452/US/08904"):
         
@@ -40,6 +41,11 @@ def scrape_info(html):
         movie_info["duration"] = duration
         movie_info["categories"] = categories
         movie_info["showtimes"] = showtimes
+        
+        scraper1.download_img(movie_info["poster_and_rating"], movie_info["name"])
+        
+        movie_info["poster_name"] = str(name)+".jpg"
+        movie_info["rating_name"] = str(name)+".png"
         
         all_info.append(movie_info)
         
