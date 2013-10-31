@@ -23,17 +23,17 @@
 			<header>
 				<h1>testing2</h1>
 			</header>
-			<nav>
-				<p>
-					<a href="/">Home</a>
-				</p>
-				<p>
-					<a href="/contact">Contact</a>
-				</p>
-			</nav>
-
+			
 			<div>
 
+				{% for object in stuff %}
+				
+				<p>{{object}}</p><br /><br />
+				
+				<img src={{object['poster_and_rating'][0]}}/>
+				
+				{% endfor %}
+					
 			</div>
 
 			<footer>

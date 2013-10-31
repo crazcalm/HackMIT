@@ -1,5 +1,5 @@
 import flask, flask.views
-import zip_code, theaters
+import zip_code, theaters, movies_info
 
 
 app = flask.Flask(__name__)
@@ -26,8 +26,11 @@ class Page1(flask.views.MethodView):
     
 class Page2(flask.views.MethodView):
     def get(self,stuff):
-        #return flask.render_template("testing2.html")
-        return stuff
+        stuff = str(stuff).replace("-", "/")
+        print stuff
+        stuff = movies_info.main(stuff)
+        return flask.render_template("testing2.html", stuff = stuff)
+        #return stuff
     
 app.add_url_rule("/movies/<stuff>", view_func=Page2.as_view("index2"), methods=["GET"])
 app.add_url_rule("/", view_func=Page1.as_view("index"), methods=["GET", "POST"])

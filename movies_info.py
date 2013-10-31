@@ -2,13 +2,18 @@ import re
 from bs4 import BeautifulSoup
 from zip_code import create_soup
 
-def main(url = "http://www.imdb.com/showtimes/cinema/US/ci0002452/US/08904"):
+def main(url = "ci0002452/US/08904"):
+        
+    url = "http://www.imdb.com/showtimes/cinema/US/"+url
+
     
     soup = create_soup(url)
     
     movie_info = movie_html(soup)
     
     movie_info = scrape_info(movie_info)
+   
+    return movie_info
     
 
 def scrape_info(html):
@@ -42,10 +47,8 @@ def scrape_info(html):
         print "\n"
         for key in item:
             print key, item[key]
-    """
-    find_title = re.compile('itemprop="url">(.*)</a>')
-    theater_title = re.findall(find_title, str(theater_html1))
-    """
+   
+    return all_info
 
 def movie_showtimes(html):
     """
@@ -101,20 +104,20 @@ def movie_categories(html):
     #print soup.strings
     
     for string in soup.strings:
+        try:
+            string = str(string).split("\n")
+            #print "\n\n"
         
-        string = str(string).split("\n")
-        #print "\n\n"
-        
-        for item in string:
-            try:
+            for item in string:
+            
                 if item[0].isalpha():
                     
                     item = kill_whitespace(item)
                     #print "category", item, "\n", "length", len(item)
                     
                     stack.append(item)
-            except:
-                pass
+        except:
+            pass
     
     return stack
     
@@ -162,8 +165,6 @@ def movie_name(html):
     return name
     
 
-
-    
 def movie_html(soup):
     
     even = soup.find_all("div", {"class": "list_item even"})
