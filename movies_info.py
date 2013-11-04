@@ -36,6 +36,10 @@ def scrape_info(html):
         categories        = movie_categories(item)
         showtimes         = movie_showtimes(item)
         
+        # formating showtimes test on index 0
+        showtimes = showtimes[0].replace("|", "    ")
+        
+        
         movie_info["name"] = name
         movie_info["poster_and_rating"] = poster_and_rating
         movie_info["duration"] = duration
@@ -99,6 +103,9 @@ def movie_categories(html):
     # will hold the movie times
     stack = []
     
+    # Formating it into a string
+    results = ""
+    
     #print soup, "\n\nstart:\t"
     #print soup.strings
     
@@ -120,8 +127,15 @@ def movie_categories(html):
                     stack.append(item)
             except:
                 pass
+            
+    for index in range(len(stack)):
+        
+        if index != len(stack)-1:
+            results += stack[index]+"|"
+        else:
+            results += stack[index]
     
-    return stack
+    return results
     
 def kill_whitespace(text):
     """
