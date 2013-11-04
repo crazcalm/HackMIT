@@ -122,6 +122,11 @@ def theater_info(theaters):
         # parsing theater website
         web_site =  "http://www.imdb.com/" + str(theater_info[0]).split(">")[1].split(" ")[1].split("=")[1][1:-1]
         
+        # creating a link to my next page!
+        testing = web_site.split("/")    
+        link = "%s-%s-%s" %(testing[-3], testing[-2], testing[-1])
+        print link, "\n"
+        
         # Parsing for the theater name
         theater_name = str(theater_info[0]).split(">")[2].split("<")[0]
     
@@ -147,7 +152,7 @@ def theater_info(theaters):
         one_theater_info.append(web_site)
         """
         
-        one_theater_dict = {"name":theater_name, "address": address, "number": phone_num,"web_site":web_site}
+        one_theater_dict = {"name":theater_name, "address": address, "number": phone_num,"web_site":web_site, "link":link}
     
         all_theater_info.append(one_theater_dict)
         

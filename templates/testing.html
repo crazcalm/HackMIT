@@ -33,10 +33,12 @@
 				<p>Movie theater list!</p><br /><br />
 				
     			{% for object in theater_list %}
-    			
+    			<a href="http://127.0.0.1:5000/movies/{{object['link']}}">
     			<div id = "theaters">
     				
     				<p id = "name">{{object["name"]}}</p>
+    				
+    				</a>
     				
     				<p id = "info">
     					<ul>
@@ -48,6 +50,7 @@
     					</ul>
     				</p>
     			</div>
+    			
     			{% endfor%}
 				
 			</div>
