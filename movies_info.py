@@ -93,37 +93,33 @@ def movie_categories(html):
     Scrapes movie categories
     """
     
-    """
-    categories = re.compile('time>(.*)')
-    categories = re.findall(categories, html)
-    
-    print categories
-    """
-    
     soup = BeautifulSoup(html)
     soup = soup.find("p", {"class":"cert-runtime-genre"})
     
     # will hold the movie times
     stack = []
     
-    #print soup
+    #print soup, "\n\nstart:\t"
     #print soup.strings
     
+    
+    
     for string in soup.strings:
-        try:
-            string = str(string).split("\n")
-            #print "\n\n"
+        #print string, "\n"
+        string = unicode(string).split("\n")
+        #print "\n\n"
         
-            for item in string:
-            
+        for item in string:
+            try:
                 if item[0].isalpha():
                     
-                    item = kill_whitespace(item)
-                    #print "category", item, "\n", "length", len(item)
+                    item = kill_whitespace(item)                    #print "category", item, "\n", "length", len(item)
+                    #item = unicode(item)
+                    item = str(item)
                     
                     stack.append(item)
-        except:
-            pass
+            except:
+                pass
     
     return stack
     
