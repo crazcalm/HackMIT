@@ -13,20 +13,17 @@
 
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 
-		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-		<link rel="shortcut icon" href="/favicon.ico">
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 	</head>
 
 	<body>
 		<div>
 			<header>
-				<h1>testing2</h1>
+				<h1>{{stuff[0]}}</h1>
 			</header>
 			
 			<div>
 
-				{% for object in stuff %}
+				{% for object in stuff[1] %}
 				<div id="movie2">
 					
 					<div id="name">
@@ -50,9 +47,18 @@
 							
 							<li>{{object["categories"]}}</li>
 							
-							<li>{{object["showtimes"]}}</li>
 						</ul>
 						
+						<p>Showtimes</p>
+						
+						<ul>
+							{% for times in object['showtimes']%}
+							
+							<li>{{times}}</li>
+							
+							{% endfor %}
+						</ul>
+						<br/><br/>
 					</div>
 					
 				</div>

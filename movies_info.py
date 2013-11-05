@@ -13,8 +13,11 @@ def main(url = "ci0002452/US/08904"):
     movie_info = movie_html(soup)
     
     movie_info = scrape_info(movie_info)
+    
+    # I need the theater name, again...
+    movie_theater = theater_name(soup)
    
-    return movie_info
+    return (movie_theater, movie_info)
     
 
 def scrape_info(html):
@@ -31,6 +34,8 @@ def scrape_info(html):
         
         # Will store the info for individual movies.
         movie_info = {}
+        
+        
         
         name              = movie_name(item)
         poster_and_rating = movie_poster(item)
@@ -57,6 +62,21 @@ def scrape_info(html):
             print key, item[key]
    
     return all_info
+
+def theater_name(html):
+    """
+    Scrapes the name of the theater
+    """
+    #soup = BeautifulSoup(html)
+    soup = html.find("h1", {"class": "header"})
+    
+    for text in soup.strings:
+        print text
+        return text
+    
+    
+        
+        
 
 def movie_showtimes(html):
     """

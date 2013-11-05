@@ -26,10 +26,16 @@ class Page1(flask.views.MethodView):
     
 class Page2(flask.views.MethodView):
     def get(self,stuff):
-        stuff = str(stuff).replace("-", "/")
-        print stuff
-        stuff = movies_info.main(stuff)
-        return flask.render_template("testing2.html", stuff = stuff)
+        
+        stuff = str(stuff)
+        if stuff.find("US") != -1:
+            stuff = stuff.replace("-", "/")
+            print stuff
+            stuff = movies_info.main(stuff)
+            return flask.render_template("testing2.html", stuff = stuff)
+        
+        else:
+            return "404"
         #return stuff
     
 app.add_url_rule("/movies/<stuff>", view_func=Page2.as_view("index2"), methods=["GET"])
