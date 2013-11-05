@@ -27,6 +27,8 @@ def scrape_info(html):
     for item in html:
         item = str(item)
         
+        #print "\n\norigin:\t", item
+        
         # Will store the info for individual movies.
         movie_info = {}
         
@@ -35,10 +37,6 @@ def scrape_info(html):
         duration          = movie_duration(item)
         categories        = movie_categories(item)
         showtimes         = movie_showtimes(item)
-        
-        # formating showtimes test on index 0
-        showtimes = showtimes[0].replace("|", "    ")
-        
         
         movie_info["name"] = name
         movie_info["poster_and_rating"] = poster_and_rating
@@ -70,25 +68,25 @@ def movie_showtimes(html):
     soup = BeautifulSoup(html)
     soup = soup.find_all("div", {"class": "showtimes"})
     
-    #print "\n", "len(soup)", len(soup)
+    # put the shotimes in a list
+    stack = []
     
     for stuff in soup:
         
         times = showtimes(stuff)
-        """
-        if len(soup) > 1:
-            print soup[1]
-            print "\n", times
-        """
-        #print times
-        return times
+        stack.append(times)
+        
+    return stack
 
 def showtimes(html):
     """
     parses movie times
-    """
+    """    
     times = re.compile('data-displaytimes="(.*)" data-logo-url')
     times = re.findall(times, str(html))
+    
+    # formating showtimes
+    times = times[0].replace("|", "    ")
     
     return times
 
@@ -96,7 +94,6 @@ def movie_categories(html):
     """
     Scrapes movie categories
     """
-    
     soup = BeautifulSoup(html)
     soup = soup.find("p", {"class":"cert-runtime-genre"})
     
@@ -105,25 +102,17 @@ def movie_categories(html):
     
     # Formating it into a string
     results = ""
-    
-    #print soup, "\n\nstart:\t"
-    #print soup.strings
-    
-    
-    
+
     for string in soup.strings:
-        #print string, "\n"
-        string = unicode(string).split("\n")
-        #print "\n\n"
         
+        string = unicode(string).split("\n")
+
         for item in string:
             try:
                 if item[0].isalpha():
                     
                     item = kill_whitespace(item)                    #print "category", item, "\n", "length", len(item)
-                    #item = unicode(item)
                     item = str(item)
-                    
                     stack.append(item)
             except:
                 pass
@@ -141,7 +130,6 @@ def kill_whitespace(text):
     """
     Removes the whitespace that is on the right side of the text.
     """
-    
     while text[-1] == " ":
         text = text[:-1]
         
