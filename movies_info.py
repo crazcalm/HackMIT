@@ -106,8 +106,10 @@ def showtimes(html):
     times = re.findall(times, str(html))
     
     # formating showtimes
-    times = times[0].replace("|", "    ")
-    
+    try:
+        times = times[0].replace("|", "    ")
+    except:
+        pass
     return times
 
 def movie_categories(html):

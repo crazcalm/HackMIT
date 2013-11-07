@@ -33,18 +33,11 @@
     			<a href="http://127.0.0.1:5000/movies/{{object['link']}}">
     			<div id = "theaters">
     				
-    				<p id = "name">{{object["name"]}}</p>
+    				<h2 id = "name">{{object["name"]}}</h2>
     				
     				</a>
     				
-    				<p id = "info">
-    					<ul>
-    						<li>{{object["address"]}}</li>
-    						
-    						<li>{{object["number"]}}</li>
-    						
-    						<li>{{object["web_site"]}}</li>
-    					</ul>
+    				<p id = "info">{{object["address"]}}<br/>{{object["number"]}}<br/>{{object["web_site"]}}
     				</p>
     			</div>
     			
@@ -57,11 +50,6 @@
 			
 			</div>
 
-			<footer>
-				<p>
-					&copy; Copyright  by Marcus Willock
-				</p>
-			</footer>
 		</div>
 	</body>
 </html>

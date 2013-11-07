@@ -2,8 +2,76 @@
         margin: 0;
         padding: 0;
         height: 100%;
+        width: 100%;
+        
+        background-color:yellow;
       }
       
-#map_canvas {
-     height:100px; margin: 0; padding: 0;
+header{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	
+	height:85px;
+	width: 100%;
+	color: red;
+	text-align: center;
+	
+	background-color: blue;
+}
+
+header h1{
+	position: absolute;
+	left: 38%;
+	
+	color: white;
+	height:auto;
+	width: 400px;
+	
+	background-color: inherit;
+}
+
+#form{
+	position: relative;
+	top: 25%;
+	left: 38%;
+	
+	height: 150px;
+	width: 400px;
+	background-color: blue;
+	text-align: center;
+	
+	border-top-left-radius: 30% 100%;
+	border-bottom-right-radius: 30% 100%;
+	border-bottom-left-radius: 30% 100%;
+	border-top-right-radius: 30% 100%; 
+	
+}
+
+#theaters{
+	
+	position: relative;
+	top: 25%;
+	left: 31%;
+	
+	height: auto;
+	width: 566px;
+	background-color: blue;
+	text-align: center;
+	
+	border-top-left-radius: 30% 100%;
+	border-bottom-right-radius: 30% 100%;
+	border-bottom-left-radius: 30% 100%;
+	border-top-right-radius: 30% 100%; 
+	
+}
+
+#name{
+	color:white;
+}
+
+#form h3{
+	
+	color: yellow;
+	padding-top: 0%;
 }
