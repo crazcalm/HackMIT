@@ -83,6 +83,8 @@ header h1{
 	
 	height: auto;
 	width: 650px;
+	
+	background-color: blue;
 }
 
 #name{
