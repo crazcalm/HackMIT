@@ -38,7 +38,7 @@ class Page2(flask.views.MethodView):
             return "404"
         #return stuff
     
-app.add_url_rule("/movies/<stuff>", view_func=Page2.as_view("index2"), methods=["GET"])
+app.add_url_rule("/<stuff>", view_func=Page2.as_view("index2"), methods=["GET"])
 app.add_url_rule("/", view_func=Page1.as_view("index"), methods=["GET", "POST"])
 
 app.debug = True

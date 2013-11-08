@@ -1,36 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
+{% extends "index.html" %}
 
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-		Remove this if you use the .htaccess -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>index</title>
-		<meta name="description" content="">
-		<meta name="author" content="Marcus Willock">
+{% block header %}Movie Theaters near you!{% endblock %}
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<link rel="stylesheet" href="static/index.css" type="text/css">
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type="text/javascript" src="/static/index.js"></script>
-        
-	</head>
-
-	<body>
-		<div>
-			<header>
-				<h1>Movies playing near you!</h1>
-			</header>
-			
+{% block body %}			
 			<div class = "movies">
 				
-				<p>Movie theater list!</p><br /><br />
-				
     			{% for object in theater_list %}
-    			<a href="http://127.0.0.1:5000/movies/{{object['link']}}">
+    			<a href="http://127.0.0.1:5000/{{object['link']}}">
     			<div id = "theaters">
     				
     				<h2 id = "name">{{object["name"]}}</h2>
@@ -45,11 +22,5 @@
 				
 			</div>
 			
+{% endblock %}		
 			
-			<div id="map-canvas">
-			
-			</div>
-
-		</div>
-	</body>
-</html>

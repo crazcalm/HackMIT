@@ -8,7 +8,7 @@
       }
       
 header{
-	position: absolute;
+	position: relative;
 	top: 0%;
 	left: 0%;
 	
@@ -22,18 +22,18 @@ header{
 
 header h1{
 	position: absolute;
-	left: 38%;
+	left: 36%;
 	
 	color: white;
 	height:auto;
-	width: 400px;
+	width: 450px;
 	
 	background-color: inherit;
 }
 
 #form{
 	position: relative;
-	top: 25%;
+	top: 10%;
 	left: 38%;
 	
 	height: 150px;
@@ -52,7 +52,7 @@ header h1{
 	
 	position: relative;
 	top: 25%;
-	left: 31%;
+	left: 32%;
 	
 	height: auto;
 	width: 566px;
@@ -73,5 +73,40 @@ header h1{
 #form h3{
 	
 	color: yellow;
-	padding-top: 0%;
+	padding-top: 4%;
+}
+
+#movie2{
+	position: relative;
+	top: 10%;
+	left: 33%;
+	
+	height: auto;
+	width: 650px;
+}
+
+#name{
+	text-align: center;
+	height:auto;
+	width:auto;
+
+}
+
+#poster{
+	height:225px;
+	width: 175px;
+	padding: 2%;
+
+	
+}
+
+#info{
+	height: 225px;
+	width: 414px;
+	
+	position:absolute;
+	
+	top: 25%;
+	left: 36%;
+	
 }

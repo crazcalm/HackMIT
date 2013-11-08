@@ -1,36 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
+{% extends "index.html" %}
 
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-		Remove this if you use the .htaccess -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+{% block header %}{{stuff[0]}}{% endblock %}
 
-		<title>testing2</title>
-		<meta name="description" content="">
-		<meta name="author" content="Marcus Willock">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<link rel="stylesheet" href="static/index.css" type="text/css">
-		
-		
-	</head>
+{% block body %}			
+<div>
 
-	<body>
-		<div>
-			<header>
-				<h1>{{stuff[0]}}</h1>
-			</header>
+				
 			
-			<div>
-
-				{% for object in stuff[1] %}
-				<div id="movie2">
+					{% for object in stuff[1] %}
+		<div id="movie2">
 					
 					<div id="name">
 						
-						<p>{{object["name"]}}</p>
+						<h2>{{object["name"]}}</h2>
 						
 					</div>
 					
@@ -49,9 +31,7 @@
 							
 							<li>{{object["categories"]}}</li>
 							
-						</ul>
-						
-						<p>Showtimes</p>
+							<li>Showtimes</li>
 						
 						<ul>
 							{% for times in object['showtimes']%}
@@ -61,18 +41,18 @@
 							{% endfor %}
 						</ul>
 						<br/><br/>
+							
+						</ul>
+						
+						
 					</div>
 					
-				</div>
-				{% endfor %}
-					
-			</div>
-
-			<footer>
-				<p>
-					&copy; Copyright  by Marcus Willock
-				</p>
-			</footer>
 		</div>
-	</body>
-</html>
+			{% endfor %}	
+					
+</div>
+
+			
+{% endblock %}		
+			
+
