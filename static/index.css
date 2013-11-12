@@ -81,10 +81,16 @@ header h1{
 	top: 10%;
 	left: 33%;
 	
-	height: auto;
+	height: 310px;
 	width: 650px;
 	
 	background-color: blue;
+	
+	border-top-left-radius: 30% 100%;
+	border-bottom-right-radius: 30% 100%;
+	border-bottom-left-radius: 30% 100%;
+	border-top-right-radius: 30% 100%; 
+	
 }
 
 #name{
@@ -98,17 +104,30 @@ header h1{
 	height:225px;
 	width: 175px;
 	padding: 2%;
+	position:relative;
+	left:9%;
 
 	
 }
 
-#info{
-	height: 225px;
+#info1{
+	height: 105px;
+	width: 414px;
+	
+	position:relative;
+	
+	top: 25%;
+	left: 13%;
+	
+}
+
+#info2{
+	height: 105px;
 	width: 414px;
 	
 	position:absolute;
 	
 	top: 25%;
-	left: 36%;
+	left: 33%;
 	
 }
